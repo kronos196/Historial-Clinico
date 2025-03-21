@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial Clínico</title>
+    <!-- Estilos en línea mejorados -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Contenedor central para los enlaces */
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px 50px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .container a {
+            display: block;
+            margin: 15px 0;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Estilo para el hover y el active en los enlaces */
+        .container a:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        .container a:active {
+            background-color: #3e8e41;
+            transform: translateY(0);
+        }
+
+        /* Estilos para los enlaces "Volver" */
+        .back-link {
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-link a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bienvenido al Sistema de Historial Clínico</h1>
+        <a href="/pacientes">Ver Historiales</a>
+        <a href="/nuevo">Nuevo Historial</a>
+        <a href="login">Logout</a>
+        <div class="back-link">
+        </div>
+    </div>
+
+</body>
+</html>

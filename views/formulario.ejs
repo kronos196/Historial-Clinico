@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Paciente</title>
+    <!-- Estilos en línea mejorados -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Enlace de "Volver" */
+        .back-link {
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><%= paciente._id ? 'Editar' : 'Nuevo' %> Historial del Paciente</h1>
+        
+        <!-- Formulario de paciente -->
+        <form action="/guardar" method="POST">
+            <input type="hidden" name="id" value="<%= paciente._id || '' %>">
+            
+            <!-- Campos del formulario -->
+            <label>Nombre:</label>
+            <input type="text" name="nombre" value="<%= paciente.nombre || '' %>" required>
+
+            <label>Apellido:</label>
+            <input type="text" name="apellido" value="<%= paciente.apellido || '' %>" required>
+
+            <label>Edad:</label>
+            <input type="number" name="edad" value="<%= paciente.edad || '' %>" required>
+
+            <label>Género:</label>
+            <select name="genero" required>
+                <option value="Masculino" <%= paciente.genero === 'Masculino' ? 'selected' : '' %>>Masculino</option>
+                <option value="Femenino" <%= paciente.genero === 'Femenino' ? 'selected' : '' %>>Femenino</option>
+                <option value="Otro" <%= paciente.genero === 'Otro' ? 'selected' : '' %>>Otro</option>
+            </select>
+
+            <label>Síntomas:</label>
+            <textarea name="sintomas"><%= paciente.sintomas || '' %></textarea>
+
+            <label>Antecedentes Personales:</label>
+            <textarea name="antecedentes"><%= paciente.antecedentes || '' %></textarea>
+
+            <label>Patologías:</label>
+            <textarea name="patologias"><%= paciente.patologias || '' %></textarea>
+
+            <label>Diagnóstico:</label>
+            <textarea name="diagnostico"><%= paciente.diagnostico || '' %></textarea>
+
+            <label>Tratamiento:</label>
+            <textarea name="tratamiento"><%= paciente.tratamiento || '' %></textarea>
+
+            <button type="submit">Guardar</button>
+        </form>
+
+        <!-- Enlace de "Volver" -->
+        <div class="back-link">
+            <a href="/index">🔙 Volver</a>
+        </div>
+    </div>
+
+</body>
+</html>

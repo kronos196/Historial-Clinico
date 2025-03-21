@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Paciente</title>
+    <!-- Estilos en línea mejorados -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        strong {
+            color: #007bff;
+        }
+
+        /* Estilos de los enlaces */
+        a {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Enlace de "Volver" y "Editar" */
+        .back-link {
+            margin-top: 30px;
+        }
+
+        .edit-link {
+            margin-left: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .edit-link:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Detalles del Paciente</h1>
+
+        <p><strong>Nombre:</strong> <%= paciente.nombre %> <%= paciente.apellido %></p>
+        <p><strong>Edad:</strong> <%= paciente.edad %></p>
+        <p><strong>Género:</strong> <%= paciente.genero %></p>
+        <p><strong>Síntomas:</strong> <%= paciente.sintomas %></p>
+        <p><strong>Antecedentes:</strong> <%= paciente.antecedentes %></p>
+        <p><strong>Patologías:</strong> <%= paciente.patologias %></p>
+        <p><strong>Diagnóstico:</strong> <%= paciente.diagnostico %></p>
+        <p><strong>Tratamiento:</strong> <%= paciente.tratamiento %></p>
+
+        <div class="back-link">
+            <a href="/pacientes">🔙 Volver</a>
+            <a href="/editar/<%= paciente._id %>" class="edit-link">✏️ Editar Información</a>
+        </div>
+    </div>
+
+</body>
+</html>
